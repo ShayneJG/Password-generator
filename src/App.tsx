@@ -9,16 +9,23 @@ import "./App.css";
 // - See hover and focus states for all interactive elements on the page
 
 function App() {
+  const [password, setPassword] = useState("");
   return (
     <div
       className="fixed top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2
 "
     >
       <div id="container" className="w-[375px] h-[667px] bg-[#08070B]">
-        test
+        <h1>Password Generator</h1>
+        <div id="password">{password}</div>
+        <div id="option-container"></div>
+        <div id="strength"></div>
+        <div id="generate-button"></div>
       </div>
     </div>
   );
 }
 
 export default App;
+
+//functions
