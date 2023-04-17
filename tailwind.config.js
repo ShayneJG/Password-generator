@@ -12,7 +12,11 @@ export default {
       darkGrey: "#24232C",
       veryDarkGrey: "#18171F",
     },
-    extend: {},
+    extend: {
+      fontFamily: {
+        jetBrainsMono: ["JetBrainsMono", "serif"],
+      },
+    },
   },
   plugins: [],
 };
