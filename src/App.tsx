@@ -11,6 +11,11 @@ import "./App.css";
 function App() {
   const [password, setPassword] = useState("");
   const [length, setLength] = useState(10);
+  //states for the checkboxes.
+  const [upper, setUpper] = useState(false);
+  const [lower, setLower] = useState(false);
+  const [num, setNum] = useState(false);
+  const [sym, setSym] = useState(false);
   return (
     <div
       className="fixed top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 text-almostWhite
@@ -32,6 +37,52 @@ function App() {
                 setLength(e.target.valueAsNumber);
               }}
             />
+          </div>
+          <div id="check-container">
+            <div className="flex">
+              <input
+                id="upper"
+                type="checkbox"
+                checked={upper}
+                onChange={(e) => {
+                  setUpper(e.target.checked);
+                }}
+              />
+              <label htmlFor="upper">Include Uppercase Letters</label>
+            </div>
+            <div className="flex">
+              <input
+                id="lower"
+                type="checkbox"
+                checked={lower}
+                onChange={(e) => {
+                  setLower(e.target.checked);
+                }}
+              />
+              <label htmlFor="lower">Include Lowercase Letters</label>
+            </div>
+            <div className="flex">
+              <input
+                id="num"
+                type="checkbox"
+                checked={num}
+                onChange={(e) => {
+                  setNum(e.target.checked);
+                }}
+              />
+              <label htmlFor="num">Include Numbers</label>
+            </div>
+            <div className="flex">
+              <input
+                id="sym"
+                type="checkbox"
+                checked={sym}
+                onChange={(e) => {
+                  setSym(e.target.checked);
+                }}
+              />
+              <label htmlFor="sym">Include Symbols</label>
+            </div>
           </div>
         </div>
         <div id="strength"></div>
