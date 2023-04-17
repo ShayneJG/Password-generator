@@ -14,7 +14,9 @@ function App() {
       className="fixed top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2
 "
     >
-      <div>test</div>
+      <div id="container" className="w-[375px] h-[667px] bg-[#08070B]">
+        test
+      </div>
     </div>
   );
 }
