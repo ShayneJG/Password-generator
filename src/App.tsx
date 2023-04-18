@@ -9,7 +9,7 @@ import "./App.css";
 // - See hover and focus states for all interactive elements on the page
 
 function App() {
-  const [password, setPassword] = useState("");
+  const [password, setPassword] = useState("P4$5W0rD!");
   const [length, setLength] = useState(10);
   //states for the checkboxes.
   const [upper, setUpper] = useState(false);
@@ -18,75 +18,89 @@ function App() {
   const [sym, setSym] = useState(false);
   return (
     <div
-      className="fixed top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 text-almostWhite
+      className="fixed top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 text-almostWhite font-jetBrainsMono 
 "
     >
-      <div id="container" className="w-[375px] h-[667px] bg-[#08070B]">
+      <div id="container" className="">
         <h1>Password Generator</h1>
         <div id="password">{password}</div>
-        <div id="option-container">
-          <div id="slider-container">
-            <p>Character Length</p>
-            <p>{length}</p>
-            <input
-              type="range"
-              value={length}
-              min={1}
-              max={20}
-              onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                setLength(e.target.valueAsNumber);
-              }}
-            />
+        <div className="bg-darkGrey p-5">
+          <div id="option-container" className="">
+            <div id="slider-container">
+              <p>Character Length</p>
+              <p>{length}</p>
+              <input
+                type="range"
+                value={length}
+                min={1}
+                max={20}
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                  setLength(e.target.valueAsNumber);
+                }}
+              />
+            </div>
+            <div id="check-container">
+              <div className="flex">
+                <input
+                  id="upper"
+                  type="checkbox"
+                  checked={upper}
+                  onChange={(e) => {
+                    setUpper(e.target.checked);
+                  }}
+                />
+                <label htmlFor="upper">Include Uppercase Letters</label>
+              </div>
+              <div className="flex">
+                <input
+                  id="lower"
+                  type="checkbox"
+                  checked={lower}
+                  onChange={(e) => {
+                    setLower(e.target.checked);
+                  }}
+                />
+                <label htmlFor="lower">Include Lowercase Letters</label>
+              </div>
+              <div className="flex">
+                <input
+                  id="num"
+                  type="checkbox"
+                  checked={num}
+                  onChange={(e) => {
+                    setNum(e.target.checked);
+                  }}
+                />
+                <label htmlFor="num">Include Numbers</label>
+              </div>
+              <div className="flex">
+                <input
+                  id="sym"
+                  type="checkbox"
+                  checked={sym}
+                  onChange={(e) => {
+                    setSym(e.target.checked);
+                  }}
+                />
+                <label htmlFor="sym">Include Symbols</label>
+              </div>
+            </div>
           </div>
-          <div id="check-container">
-            <div className="flex">
-              <input
-                id="upper"
-                type="checkbox"
-                checked={upper}
-                onChange={(e) => {
-                  setUpper(e.target.checked);
-                }}
+          <div id="strength"></div>
+
+          <div
+            id="generate-button"
+            className="flex items-center bg-neonGreen text-darkGrey justify-center w-full h-16 box-content"
+          >
+            <p className="pr-5">Generate </p>
+            <svg width="12" height="12" xmlns="http://www.w3.org/2000/svg">
+              <path
+                fill="#24232C"
+                d="m5.106 12 6-6-6-6-1.265 1.265 3.841 3.84H.001v1.79h7.681l-3.841 3.84z"
               />
-              <label htmlFor="upper">Include Uppercase Letters</label>
-            </div>
-            <div className="flex">
-              <input
-                id="lower"
-                type="checkbox"
-                checked={lower}
-                onChange={(e) => {
-                  setLower(e.target.checked);
-                }}
-              />
-              <label htmlFor="lower">Include Lowercase Letters</label>
-            </div>
-            <div className="flex">
-              <input
-                id="num"
-                type="checkbox"
-                checked={num}
-                onChange={(e) => {
-                  setNum(e.target.checked);
-                }}
-              />
-              <label htmlFor="num">Include Numbers</label>
-            </div>
-            <div className="flex">
-              <input
-                id="sym"
-                type="checkbox"
-                checked={sym}
-                onChange={(e) => {
-                  setSym(e.target.checked);
-                }}
-              />
-              <label htmlFor="sym">Include Symbols</label>
-            </div>
+            </svg>
           </div>
         </div>
-        <div id="strength"></div>
-        <div id="generate-button"></div>
       </div>
     </div>
   );
