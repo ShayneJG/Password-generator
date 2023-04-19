@@ -9,7 +9,7 @@ import "./App.css";
 // - See hover and focus states for all interactive elements on the page
 
 function App() {
-  const [password, setPassword] = useState("P4$5W0rD!");
+  const [password, setPassword] = useState("");
   const [length, setLength] = useState(10);
   //states for the checkboxes.
   const [upper, setUpper] = useState(false);
@@ -23,7 +23,7 @@ function App() {
     >
       <div id="container" className="">
         <h1>Password Generator</h1>
-        <div id="password">{password}</div>
+        <input id="password" value={password} placeholder="P4$5W0rD!" />
         <div className="bg-darkGrey p-5">
           <div id="option-container" className="">
             <div id="slider-container">
