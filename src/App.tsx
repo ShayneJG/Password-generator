@@ -23,7 +23,12 @@ function App() {
     >
       <div id="container" className="">
         <h1>Password Generator</h1>
-        <input id="password" value={password} placeholder="P4$5W0rD!" />
+        <input
+          readOnly
+          id="password"
+          value={password}
+          placeholder="P4$5W0rD!"
+        />
         <div className="bg-darkGrey p-5">
           <div id="option-container" className="">
             <div id="slider-container">
@@ -90,7 +95,7 @@ function App() {
 
           <div
             id="generate-button"
-            className="flex items-center bg-neonGreen text-darkGrey justify-center w-full h-16 box-content"
+            className="flex items-center bg-neonGreen text-darkGrey justify-center w-full h-16 box-content hover:cursor-pointer"
           >
             <p className="pr-5">Generate </p>
             <svg width="12" height="12" xmlns="http://www.w3.org/2000/svg">
@@ -109,3 +114,16 @@ function App() {
 export default App;
 
 //functions
+
+function generatePassword(
+  length: number,
+  upper: boolean,
+  lower: boolean,
+  num: boolean,
+  sym: boolean
+) {
+  const upperLetters: string = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  const lowerLetters: string = "abcdefghijklmnopqrstuvwxyz";
+  const numbers: string = "0123456789";
+  const symbols: string = `!@#$%^&*()-_=+[{]}\\|;:\'",.<>/?`;
+}
