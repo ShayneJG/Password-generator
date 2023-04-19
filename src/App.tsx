@@ -127,3 +127,13 @@ function generatePassword(
   const numbers: string = "0123456789";
   const symbols: string = `!@#$%^&*()-_=+[{]}\\|;:\'",.<>/?`;
 }
+
+interface testProps {
+  x: string;
+  y: number;
+  z: boolean;
+}
+
+function Test({ x, y, z }: testProps) {
+  return <div></div>;
+}
