@@ -89,7 +89,9 @@ function App() {
               </div>
             </div>
           </div>
-          <div id="strength"></div>
+          <div id="strength">
+            <StrengthRating strength={strength} />
+          </div>
 
           <div
             id="generate-button"
@@ -212,5 +214,10 @@ interface BarProps {
 }
 //generates single bars, can be passed a colour.
 const Bar: React.FC<BarProps> = ({ colour }) => {
-  return <div></div>;
+  let boxStyle: string = "border border-almostWhite";
+
+  if (colour) {
+    boxStyle = `bg-${colour}`;
+  }
+  return <div className={`h-[28px] w-[10px] ${boxStyle}`}></div>;
 };
