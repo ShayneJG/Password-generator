@@ -18,7 +18,7 @@ function App() {
   const [sym, setSym] = useState(false);
   return (
     <div
-      className="fixed top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 text-almostWhite font-jetBrainsMono 
+      className="md:fixed md:top-1/2 md:left-1/2 md:-translate-y-1/2 md:-translate-x-1/2 text-almostWhite font-jetBrainsMono 
 "
     >
       <div id="container" className="">
