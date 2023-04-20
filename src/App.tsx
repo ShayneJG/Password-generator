@@ -206,6 +206,23 @@ const StrengthRating: React.FC<StrengthRatingProps> = ({ strength }) => {
 };
 //generates the 4 bars according to strength
 const StrengthBars: React.FC<StrengthRatingProps> = ({ strength }) => {
+  let colours: string[] = [];
+  switch (strength) {
+    case "TOO WEAK!":
+      colours = ["red", "", "", ""];
+      break;
+    case "WEAK":
+      colours = ["orange", "orange", "", ""];
+      break;
+    case "MEDIUM":
+      colours = ["yellow", "yellow", "yellow", ""];
+      break;
+    case "STRONG":
+      colours = ["neonGreen", "neonGreen", "neonGreen", "neonGreen"];
+    default:
+      colours = ["", "", "", ""];
+  }
+
   return <div></div>;
 };
 
