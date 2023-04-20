@@ -16,6 +16,8 @@ function App() {
   const [lower, setLower] = useState(false);
   const [num, setNum] = useState(false);
   const [sym, setSym] = useState(false);
+  //state for strength
+  const [strength, setStrength] = useState("");
   return (
     <div
       className="md:fixed md:top-1/2 md:left-1/2 md:-translate-y-1/2 md:-translate-x-1/2 text-almostWhite font-jetBrainsMono 
