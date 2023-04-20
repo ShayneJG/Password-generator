@@ -32,6 +32,7 @@ function App() {
               <p>Character Length</p>
               <p>{length}</p>
               <input
+                readOnly
                 type="range"
                 value={length}
                 min={1}
@@ -88,10 +89,7 @@ function App() {
               </div>
             </div>
           </div>
-          <div id="strength">
-            <p>STRENGTH</p>
-            <div id="strength-rating"></div>
-          </div>
+          <div id="strength"></div>
 
           <div
             id="generate-button"
@@ -190,3 +188,29 @@ function shuffle(array: string[]) {
 
   return array;
 }
+
+interface StrengthRatingProps {
+  strength: string;
+}
+
+//component for the entire strength rating section
+const StrengthRating: React.FC<StrengthRatingProps> = ({ strength }) => {
+  return (
+    <div>
+      <p>STRENGTH</p>
+      <p>{strength}</p>
+    </div>
+  );
+};
+//generates the 4 bars according to strength
+const StrengthBars: React.FC<StrengthRatingProps> = ({ strength }) => {
+  return <div></div>;
+};
+
+interface BarProps {
+  colour?: string;
+}
+//generates single bars, can be passed a colour.
+const Bar: React.FC<BarProps> = ({ colour }) => {
+  return <div></div>;
+};
