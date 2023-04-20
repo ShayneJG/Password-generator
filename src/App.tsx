@@ -88,7 +88,10 @@ function App() {
               </div>
             </div>
           </div>
-          <div id="strength"></div>
+          <div id="strength">
+            <p>STRENGTH</p>
+            <div id="strength-rating"></div>
+          </div>
 
           <div
             id="generate-button"
