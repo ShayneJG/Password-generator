@@ -32,7 +32,7 @@ function App() {
               <p>Character Length</p>
               <p>{length}</p>
               <input
-                readOnly
+                readOnly={true}
                 type="range"
                 value={length}
                 min={1}
@@ -198,9 +198,10 @@ interface StrengthRatingProps {
 //component for the entire strength rating section
 const StrengthRating: React.FC<StrengthRatingProps> = ({ strength }) => {
   return (
-    <div>
+    <div className="flex">
       <p>STRENGTH</p>
       <p>{strength}</p>
+      <StrengthBars strength={strength} />
     </div>
   );
 };
@@ -223,7 +224,13 @@ const StrengthBars: React.FC<StrengthRatingProps> = ({ strength }) => {
       colours = ["", "", "", ""];
   }
 
-  return <div></div>;
+  const bars = (colours: string[]): React.ReactNode[] => {
+    return colours.map((colour: string) => {
+      return <Bar colour={colour} />;
+    });
+  };
+
+  return <div className="flex">{bars(colours)}</div>;
 };
 
 interface BarProps {
