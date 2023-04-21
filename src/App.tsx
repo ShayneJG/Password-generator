@@ -140,7 +140,10 @@ function generatePassword(
   const numbers: string = "0123456789";
   const symbols: string = `!@#$%^&*()-_=+[{]}\\|;:\'",.<>/?`;
 
+  //intiialises results, but also resets password if checkboxes are all unchecked
   let result: string[] = [];
+  //resets strength
+  setStrength("");
 
   let allChar: string = "";
 
