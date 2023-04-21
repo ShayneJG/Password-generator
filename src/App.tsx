@@ -35,7 +35,7 @@ function App() {
                 readOnly={true}
                 type="range"
                 value={length}
-                min={1}
+                min={4}
                 max={20}
                 onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                   setLength(e.target.valueAsNumber);
@@ -97,7 +97,15 @@ function App() {
             id="generate-button"
             className="flex items-center bg-neonGreen text-darkGrey justify-center w-full h-16 box-content hover:cursor-pointer"
             onClick={() => {
-              generatePassword(length, upper, lower, num, sym, setPassword);
+              generatePassword(
+                length,
+                upper,
+                lower,
+                num,
+                sym,
+                setPassword,
+                setStrength
+              );
             }}
           >
             <p className="pr-5">Generate </p>
@@ -124,7 +132,8 @@ function generatePassword(
   lower: boolean,
   num: boolean,
   sym: boolean,
-  setPassword: React.Dispatch<SetStateAction<string>>
+  setPassword: React.Dispatch<SetStateAction<string>>,
+  setStrength: React.Dispatch<SetStateAction<string>>
 ) {
   const upperLetters: string = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
   const lowerLetters: string = "abcdefghijklmnopqrstuvwxyz";
@@ -160,6 +169,32 @@ function generatePassword(
 
   //shuffles the array to generate random order of characters
   shuffle(result);
+
+  //determines strength of the password
+  if (length == 4) {
+    setStrength("TOO WEAK!");
+  } else {
+    let strengthRate: number = 0;
+    num ? strengthRate++ : undefined;
+    sym ? strengthRate++ : undefined;
+    upper ? strengthRate++ : undefined;
+    lower ? strengthRate++ : undefined;
+
+    switch (strengthRate) {
+      case 1:
+        setStrength("TOO WEAK!");
+        break;
+      case 2:
+        setStrength("WEAK");
+        break;
+      case 3:
+        setStrength("MEDIUM");
+        break;
+      case 4:
+        setStrength("STRONG");
+        break;
+    }
+  }
 
   //sets the state to update the password
   setPassword(result.join(""));
@@ -220,13 +255,14 @@ const StrengthBars: React.FC<StrengthRatingProps> = ({ strength }) => {
       break;
     case "STRONG":
       colours = ["neonGreen", "neonGreen", "neonGreen", "neonGreen"];
+      break;
     default:
       colours = ["", "", "", ""];
   }
 
   const bars = (colours: string[]): React.ReactNode[] => {
-    return colours.map((colour: string) => {
-      return <Bar colour={colour} />;
+    return colours.map((colour: string, index) => {
+      return <Bar colour={colour} key={index} />;
     });
   };
 
