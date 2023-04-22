@@ -27,7 +27,14 @@ function App() {
     >
       <div id="container" className="">
         <h1>Password Generator</h1>
-        <input id="password" value={password} placeholder="P4$5W0rD!" />
+        <div>
+          <input id="password" value={password} placeholder="P4$5W0rD!" />
+          <CopyButton
+            password={password}
+            copied={copied}
+            setCopied={setCopied}
+          />
+        </div>
         <div className="bg-darkGrey p-5">
           <div id="option-container" className="">
             <div id="slider-container">
@@ -319,6 +326,7 @@ const CopyButton: React.FC<CopyButtonProps> = ({
     <div>
       <p>{copied ? "COPIED" : ""}</p>
       <svg
+        className="hover:cursor-pointer"
         width="21"
         height="24"
         xmlns="http://www.w3.org/2000/svg"
