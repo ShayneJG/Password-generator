@@ -29,7 +29,7 @@ function App() {
         <h1 className="font-bold text-base p-5 text-grey">
           Password Generator
         </h1>
-        <div>
+        <div className="relative">
           <input
             id="password"
             value={password}
@@ -335,8 +335,10 @@ const CopyButton: React.FC<CopyButtonProps> = ({
   };
 
   return (
-    <div>
-      <p className="text-neonGreen">{copied ? "COPIED" : ""}</p>
+    <div className="absolute top-1/3 right-5 h-5">
+      <p className="absolute right-10 text-neonGreen h-0">
+        {copied ? "COPIED" : ""}
+      </p>
       <svg
         className="hover:cursor-pointer"
         width="21"
