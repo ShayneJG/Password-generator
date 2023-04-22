@@ -109,9 +109,10 @@ function App() {
             <StrengthRating strength={strength} />
           </div>
 
-          <div
+          <button
+            disabled={!upper && !lower && !sym && !num}
             id="generate-button"
-            className="flex items-center bg-neonGreen text-darkGrey justify-center w-full h-16 box-content hover:cursor-pointer"
+            className="flex items-center disabled:opacity-30 disabled:hover:cursor-not-allowed bg-neonGreen text-darkGrey justify-center w-full h-16 box-content hover:cursor-pointer"
             onClick={() => {
               generatePassword(
                 length,
@@ -132,7 +133,7 @@ function App() {
                 d="m5.106 12 6-6-6-6-1.265 1.265 3.841 3.84H.001v1.79h7.681l-3.841 3.84z"
               />
             </svg>
-          </div>
+          </button>
         </div>
       </div>
     </div>
@@ -168,31 +169,32 @@ function generatePassword(
 
   //ensures at least one of each if they are meant to be included.
   if (upper == true) {
-    result.push(upperLetters.charAt(getRandomNumber(upperLetters.length)));
+    result.push(upperLetters.charAt(getRandomNumber(upperLetters.length - 1)));
     allChar += upperLetters;
   }
   if (lower == true) {
-    result.push(lowerLetters.charAt(getRandomNumber(lowerLetters.length)));
+    result.push(lowerLetters.charAt(getRandomNumber(lowerLetters.length - 1)));
     allChar += lowerLetters;
   }
   if (sym == true) {
-    result.push(symbols.charAt(getRandomNumber(symbols.length)));
+    result.push(symbols.charAt(getRandomNumber(symbols.length - 1)));
     allChar += symbols;
   }
   if (num == true) {
-    result.push(numbers.charAt(getRandomNumber(numbers.length)));
+    result.push(numbers.charAt(getRandomNumber(numbers.length - 1)));
     allChar += numbers;
   }
 
   //generates the rest randomly
-  for (let i: number = 3; i < length - 1; i++) {
-    result.push(allChar.charAt(getRandomNumber(allChar.length)));
+  for (let i: number = result.length - 1; i < length - 1; i++) {
+    result.push(allChar.charAt(getRandomNumber(allChar.length - 1)));
   }
 
   //shuffles the array to generate random order of characters
   shuffle(result);
 
   //determines strength of the password
+  //FIX THIS
   if (length == 4) {
     setStrength("TOO WEAK!");
   } else {
@@ -222,23 +224,23 @@ function generatePassword(
   setPassword(result.join(""));
 }
 
-//gets random number between 0 and n.
+//gets random number between 0 and n
 function getRandomNumber(n: number): number {
   return Math.floor(Math.random() * (n + 1));
 }
 
-//
+//yoinked from stack overflow. Is really effective, thank you internet
 function shuffle(array: string[]) {
   let currentIndex: number = array.length,
     randomIndex;
 
-  // While there remain elements to shuffle.
+  // While there remain elements to shuffle
   while (currentIndex != 0) {
     // Pick a remaining element.
     randomIndex = Math.floor(Math.random() * currentIndex);
     currentIndex--;
 
-    // And swap it with the current element.
+    // And swap it with the current element
     [array[currentIndex], array[randomIndex]] = [
       array[randomIndex],
       array[currentIndex],
