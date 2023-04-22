@@ -113,7 +113,8 @@ function App() {
                 num,
                 sym,
                 setPassword,
-                setStrength
+                setStrength,
+                setCopied
               );
             }}
           >
@@ -142,7 +143,8 @@ function generatePassword(
   num: boolean,
   sym: boolean,
   setPassword: React.Dispatch<SetStateAction<string>>,
-  setStrength: React.Dispatch<SetStateAction<string>>
+  setStrength: React.Dispatch<SetStateAction<string>>,
+  setCopied: React.Dispatch<SetStateAction<boolean>>
 ) {
   const upperLetters: string = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
   const lowerLetters: string = "abcdefghijklmnopqrstuvwxyz";
@@ -151,8 +153,9 @@ function generatePassword(
 
   //intiialises results, but also resets password if checkboxes are all unchecked
   let result: string[] = [];
-  //resets strength
+  //resets strength and copy when new password is generated. Strength needs to be reset in the case that a second password is not correctly generated.
   setStrength("");
+  setCopied(false);
 
   let allChar: string = "";
 
