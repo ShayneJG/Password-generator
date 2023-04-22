@@ -290,11 +290,16 @@ const Bar: React.FC<BarProps> = ({ colour }) => {
 //component for copy button
 
 interface CopyButtonProps {
+  password: string;
   copied: boolean;
   setCopied: React.Dispatch<SetStateAction<boolean>>;
 }
 
-const CopyButton: React.FC<CopyButtonProps> = ({ copied, setCopied }) => {
+const CopyButton: React.FC<CopyButtonProps> = ({
+  copied,
+  setCopied,
+  password,
+}) => {
   const [isHovered, setIsHovered] = useState(false);
 
   const handleMouseEnter = () => {
@@ -306,6 +311,7 @@ const CopyButton: React.FC<CopyButtonProps> = ({ copied, setCopied }) => {
   };
 
   const clickHandle = () => {
+    navigator.clipboard.writeText(password);
     setCopied(true);
   };
 
