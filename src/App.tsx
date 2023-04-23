@@ -1,5 +1,11 @@
 import { SetStateAction, useState } from "react";
-
+import {
+  Slider,
+  SliderTrack,
+  SliderFilledTrack,
+  SliderThumb,
+  SliderMark,
+} from "@chakra-ui/react";
 import "./App.css";
 // user stories
 // - Generate a password based on the selected inclusion options
@@ -51,6 +57,21 @@ function App() {
                 <p className="text-base text-almostWhite">Character Length</p>
                 <p>{length}</p>
               </div>
+              <Slider
+                marginY={"1.5rem"}
+                id="slider"
+                min={4}
+                max={20}
+                defaultValue={length}
+                onChange={(v) => {
+                  setLength(v);
+                }}
+              >
+                <SliderTrack bg={"#18171F"} height={"8px"}>
+                  <SliderFilledTrack bg={"#A4FFAF"} />
+                </SliderTrack>
+                <SliderThumb height={"28px"} width={"28px"} />
+              </Slider>
             </div>
             <div id="check-container">
               <div className="flex">
