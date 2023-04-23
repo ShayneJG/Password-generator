@@ -25,8 +25,8 @@ function App() {
       className="md:fixed md:top-1/2 md:left-1/2 md:-translate-y-1/2 md:-translate-x-1/2 text-almostWhite font-jetBrainsMono 
 "
     >
-      <div id="container" className="">
-        <h1 className="font-bold text-base p-5 text-grey">
+      <div id="container" className="p-4">
+        <h1 className="font-bold text-base p-5 text-grey text-center">
           Password Generator
         </h1>
         <div className="relative">
@@ -35,7 +35,7 @@ function App() {
             id="password"
             value={password}
             placeholder="P4$5W0rD!"
-            className="w-full h-16 bg-darkGrey p-3 mb-4 text-almostWhite text-2xl "
+            className="w-full h-16 bg-darkGrey p-3 mb-4 text-almostWhite font-bold text-2xl "
           />
           <CopyButton
             password={password}
@@ -44,12 +44,15 @@ function App() {
           />
         </div>
         <div className="bg-darkGrey p-5">
+          {/* options section */}
           <div id="option-container" className="">
             <div id="slider-container">
-              <p>Character Length</p>
-              <p>{length}</p>
+              <div className="flex justify-between font-bold">
+                <p className="text-base text-almostWhite">Character Length</p>
+                <p>{length}</p>
+              </div>
               <input
-                readOnly={true}
+                className="w-full "
                 type="range"
                 value={length}
                 min={4}
