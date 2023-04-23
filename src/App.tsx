@@ -18,7 +18,7 @@ function App() {
   const [password, setPassword] = useState("");
   const [length, setLength] = useState(10);
   //states for the checkboxes.
-  const [upper, setUpper] = useState(false);
+  const [upper, setUpper] = useState(true);
   const [lower, setLower] = useState(false);
   const [num, setNum] = useState(false);
   const [sym, setSym] = useState(false);
