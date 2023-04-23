@@ -284,16 +284,21 @@ const StrengthBars: React.FC<StrengthRatingProps> = ({ strength }) => {
   let colours: string[] = [];
   switch (strength) {
     case "TOO WEAK!":
-      colours = ["red", "", "", ""];
+      colours = ["bg-red", "", "", ""];
       break;
     case "WEAK":
-      colours = ["orange", "orange", "", ""];
+      colours = ["bg-orange", "bg-orange", "", ""];
       break;
     case "MEDIUM":
-      colours = ["yellow", "yellow", "yellow", ""];
+      colours = ["bg-yellow", "bg-yellow", "bg-yellow", ""];
       break;
     case "STRONG":
-      colours = ["neonGreen", "neonGreen", "neonGreen", "neonGreen"];
+      colours = [
+        "bg-neonGreen",
+        "bg-neonGreen",
+        "bg-neonGreen",
+        "bg-neonGreen",
+      ];
       break;
     default:
       colours = ["", "", "", ""];
@@ -316,7 +321,7 @@ const Bar: React.FC<BarProps> = ({ colour }) => {
   let boxStyle: string = "border border-almostWhite";
 
   if (colour) {
-    boxStyle = `bg-${colour}`;
+    boxStyle = `${colour}`;
   }
   return <div className={`h-[28px] w-[10px] ${boxStyle}`}></div>;
 };
