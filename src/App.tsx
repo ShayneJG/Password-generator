@@ -7,6 +7,8 @@ import {
   SliderMark,
 } from "@chakra-ui/react";
 import "./App.css";
+import { Checkbox, CheckboxGroup } from "@chakra-ui/react";
+
 // user stories
 // - Generate a password based on the selected inclusion options
 // - Copy the generated password to the computer's clipboard
@@ -26,6 +28,7 @@ function App() {
   const [strength, setStrength] = useState("");
   //state for copy button
   const [copied, setCopied] = useState(false);
+
   return (
     <div
       className="md:fixed md:top-1/2 md:left-1/2 md:-translate-y-1/2 md:-translate-x-1/2 text-almostWhite font-jetBrainsMono 
@@ -74,49 +77,20 @@ function App() {
               </Slider>
             </div>
             <div id="check-container">
-              <div className="flex">
-                <input
-                  id="upper"
-                  type="checkbox"
-                  checked={upper}
-                  onChange={(e) => {
-                    setUpper(e.target.checked);
-                  }}
+              {/* checkboxes */}
+              <div className="">
+                <Options
+                  state={upper}
+                  toggle={setUpper}
+                  label="Include Uppercase Letters"
                 />
-                <label htmlFor="upper">Include Uppercase Letters</label>
-              </div>
-              <div className="flex">
-                <input
-                  id="lower"
-                  type="checkbox"
-                  checked={lower}
-                  onChange={(e) => {
-                    setLower(e.target.checked);
-                  }}
+                <Options
+                  state={lower}
+                  toggle={setLower}
+                  label="Include Lowercase Letters"
                 />
-                <label htmlFor="lower">Include Lowercase Letters</label>
-              </div>
-              <div className="flex">
-                <input
-                  id="num"
-                  type="checkbox"
-                  checked={num}
-                  onChange={(e) => {
-                    setNum(e.target.checked);
-                  }}
-                />
-                <label htmlFor="num">Include Numbers</label>
-              </div>
-              <div className="flex">
-                <input
-                  id="sym"
-                  type="checkbox"
-                  checked={sym}
-                  onChange={(e) => {
-                    setSym(e.target.checked);
-                  }}
-                />
-                <label htmlFor="sym">Include Symbols</label>
+                <Options state={num} toggle={setNum} label="Include Numbers" />
+                <Options state={sym} toggle={setSym} label="Include Symbols" />
               </div>
             </div>
           </div>
@@ -379,5 +353,28 @@ const CopyButton: React.FC<CopyButtonProps> = ({
         </svg>
       </div>
     </div>
+  );
+};
+
+interface OptionsProps {
+  state: boolean;
+  toggle: React.Dispatch<SetStateAction<boolean>>;
+  label: string;
+}
+
+const Options: React.FC<OptionsProps> = ({ state, toggle, label }) => {
+  return (
+    <Checkbox
+      className="text-base font-bold"
+      id={label}
+      marginBottom="0.4rem"
+      spacing="1.2rem"
+      colorScheme="green"
+      iconColor="black"
+      checked={state}
+      onChange={(e) => toggle(e.target.checked)}
+    >
+      {label}
+    </Checkbox>
   );
 };
