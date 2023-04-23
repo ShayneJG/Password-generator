@@ -272,10 +272,12 @@ interface StrengthRatingProps {
 //component for the entire strength rating section
 const StrengthRating: React.FC<StrengthRatingProps> = ({ strength }) => {
   return (
-    <div className="flex">
-      <p>STRENGTH</p>
-      <p>{strength}</p>
-      <StrengthBars strength={strength} />
+    <div className="flex bg-[#18171F] my-3 p-5 justify-between items-center">
+      <p className="text-grey text-base font-bold">STRENGTH</p>
+      <div className="flex items-center">
+        <p className="text-almostWhite text-lg font-bold pr-2">{strength}</p>
+        <StrengthBars strength={strength} />
+      </div>
     </div>
   );
 };
@@ -318,12 +320,12 @@ interface BarProps {
 }
 //generates single bars, can be passed a colour.
 const Bar: React.FC<BarProps> = ({ colour }) => {
-  let boxStyle: string = "border border-almostWhite";
+  let boxStyle: string = "border-2 border-almostWhite";
 
   if (colour) {
     boxStyle = `${colour}`;
   }
-  return <div className={`h-[28px] w-[10px] ${boxStyle}`}></div>;
+  return <div className={`h-[28px] w-[10px] mx-1 ${boxStyle}`}></div>;
 };
 
 //component for copy button
