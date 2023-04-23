@@ -53,12 +53,12 @@ function App() {
           {/* options section */}
           <div id="option-container" className="">
             <div id="slider-container">
-              <div className="flex justify-between font-bold">
+              <div className="flex justify-between font-bold items-center">
                 <p className="text-base text-almostWhite">Character Length</p>
-                <p>{length}</p>
+                <p className="text-neonGreen text-2xl">{length}</p>
               </div>
               <Slider
-                marginY={"1.5rem"}
+                marginY={"1.0rem"}
                 id="slider"
                 min={4}
                 max={20}
