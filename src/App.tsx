@@ -31,10 +31,11 @@ function App() {
         </h1>
         <div className="relative">
           <input
+            readOnly
             id="password"
             value={password}
             placeholder="P4$5W0rD!"
-            className="w-full h-16 bg-darkGrey p-5 text-almostWhite "
+            className="w-full h-16 bg-darkGrey p-3 mb-4 text-almostWhite text-2xl "
           />
           <CopyButton
             password={password}
