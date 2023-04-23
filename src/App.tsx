@@ -78,7 +78,7 @@ function App() {
             </div>
             <div id="check-container">
               {/* checkboxes */}
-              <div className="">
+              <div className="flex flex-col">
                 <Options
                   state={upper}
                   toggle={setUpper}
@@ -369,10 +369,10 @@ const Options: React.FC<OptionsProps> = ({ state, toggle, label }) => {
       id={label}
       marginBottom="0.4rem"
       spacing="1.2rem"
-      colorScheme="green"
       iconColor="black"
       checked={state}
       onChange={(e) => toggle(e.target.checked)}
+      rounded="none"
     >
       {label}
     </Checkbox>
