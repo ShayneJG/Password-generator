@@ -336,7 +336,7 @@ const CopyButton: React.FC<CopyButtonProps> = ({
   };
 
   return (
-    <div className="absolute top-1/3 right-5">
+    <div className="absolute bottom-1/2 right-5">
       <p className="absolute right-10 text-neonGreen h-0">
         {copied ? "COPIED" : ""}
       </p>
