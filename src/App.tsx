@@ -51,16 +51,6 @@ function App() {
                 <p className="text-base text-almostWhite">Character Length</p>
                 <p>{length}</p>
               </div>
-              <input
-                className="w-full "
-                type="range"
-                value={length}
-                min={4}
-                max={20}
-                onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                  setLength(e.target.valueAsNumber);
-                }}
-              />
             </div>
             <div id="check-container">
               <div className="flex">
