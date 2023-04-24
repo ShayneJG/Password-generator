@@ -7,6 +7,7 @@ import {
 } from "@chakra-ui/react";
 import "./App.css";
 import { Checkbox } from "@chakra-ui/react";
+import { Tooltip } from "@chakra-ui/react";
 
 // user stories
 // - Generate a password based on the selected inclusion options
@@ -105,32 +106,40 @@ function App() {
           <div id="strength">
             <StrengthRating strength={strength} />
           </div>
-
-          <button
-            disabled={(!upper && !lower && !sym && !num) || length < 4}
-            id="generate-button"
-            className="flex items-center group disabled:opacity-30 disabled:hover:cursor-not-allowed hover:border-neonGreen hover:text-neonGreen hover:bg-darkGrey bg-neonGreen hover: text-darkGrey justify-center w-full h-16 box-content hover:cursor-pointer"
-            onClick={() => {
-              generatePassword(
-                length,
-                upper,
-                lower,
-                num,
-                sym,
-                setPassword,
-                setStrength,
-                setCopied
-              );
-            }}
+          <Tooltip
+            hasArrow
+            arrowSize={15}
+            isDisabled={upper || lower || sym || (num && length > 4)}
+            label="Please tick at least one box and have a length of 4 or more!"
           >
-            <p className="pr-5  text-base leading-[21px] font-bold">GENERATE</p>
-            <svg width="11" height="12" xmlns="http://www.w3.org/2000/svg">
-              <path
-                className="group-hover:fill-neonGreen"
-                d="m5.106 12 6-6-6-6-1.265 1.265 3.841 3.84H.001v1.79h7.681l-3.841 3.84z"
-              />
-            </svg>
-          </button>
+            <button
+              disabled={(!upper && !lower && !sym && !num) || length < 4}
+              id="generate-button"
+              className="flex items-center group disabled:opacity-30 disabled:hover:cursor-not-allowed hover:border-neonGreen hover:text-neonGreen hover:bg-darkGrey bg-neonGreen hover: text-darkGrey justify-center w-full h-16 box-content hover:cursor-pointer"
+              onClick={() => {
+                generatePassword(
+                  length,
+                  upper,
+                  lower,
+                  num,
+                  sym,
+                  setPassword,
+                  setStrength,
+                  setCopied
+                );
+              }}
+            >
+              <p className="pr-5  text-base leading-[21px] font-bold">
+                GENERATE
+              </p>
+              <svg width="11" height="12" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  className="group-hover:fill-neonGreen"
+                  d="m5.106 12 6-6-6-6-1.265 1.265 3.841 3.84H.001v1.79h7.681l-3.841 3.84z"
+                />
+              </svg>
+            </button>
+          </Tooltip>
         </div>
       </div>
     </div>
