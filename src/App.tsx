@@ -63,7 +63,7 @@ function App() {
               <Slider
                 marginY={"1.0rem"}
                 id="slider"
-                min={4}
+                min={0}
                 max={20}
                 defaultValue={length}
                 onChange={(v) => {
@@ -108,9 +108,9 @@ function App() {
           </div>
 
           <button
-            disabled={!upper && !lower && !sym && !num}
+            disabled={(!upper && !lower && !sym && !num) || length < 4}
             id="generate-button"
-            className="flex items-center disabled:opacity-30 disabled:hover:cursor-not-allowed bg-neonGreen text-darkGrey justify-center w-full h-16 box-content hover:cursor-pointer"
+            className="flex items-center group disabled:opacity-30 disabled:hover:cursor-not-allowed hover:border-neonGreen hover:text-neonGreen hover:bg-darkGrey bg-neonGreen hover: text-darkGrey justify-center w-full h-16 box-content hover:cursor-pointer"
             onClick={() => {
               generatePassword(
                 length,
@@ -124,12 +124,10 @@ function App() {
               );
             }}
           >
-            <p className="pr-5 text-darkGrey text-base leading-[21px] font-bold">
-              GENERATE{" "}
-            </p>
+            <p className="pr-5  text-base leading-[21px] font-bold">GENERATE</p>
             <svg width="11" height="12" xmlns="http://www.w3.org/2000/svg">
               <path
-                fill="#24232C"
+                className="group-hover:fill-neonGreen"
                 d="m5.106 12 6-6-6-6-1.265 1.265 3.841 3.84H.001v1.79h7.681l-3.841 3.84z"
               />
             </svg>
