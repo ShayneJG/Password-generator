@@ -370,7 +370,7 @@ const Options: React.FC<OptionsProps> = ({ state, toggle, label }) => {
       marginBottom="0.4rem"
       spacing="1.2rem"
       iconColor="black"
-      checked={state}
+      isChecked={state}
       onChange={(e) => toggle(e.target.checked)}
       rounded="none"
     >
