@@ -31,11 +31,11 @@ function App() {
 
   return (
     <div
-      className="md:fixed md:top-1/2 md:left-1/2 md:-translate-y-1/2 md:-translate-x-1/2 text-almostWhite font-jetBrainsMono 
+      className="w-full m-auto max-w-sm md:max-w-[540px] h-full text-almostWhite font-jetBrainsMono 
 "
     >
-      <div id="container" className="p-4">
-        <h1 className="font-bold text-base p-5 text-grey text-center">
+      <div id="container" className="p-5 mx-auto">
+        <h1 className="font-bold text-base md:text-2xl mt-5 p-5 text-grey text-center">
           Password Generator
         </h1>
         <div className="relative">
@@ -44,7 +44,7 @@ function App() {
             id="password"
             value={password}
             placeholder="P4$5W0rD!"
-            className="w-full h-16 bg-darkGrey p-3 mb-4 text-almostWhite font-bold text-2xl "
+            className="w-full h-16 md:h-20 bg-darkGrey p-3 mb-4 text-almostWhite font-bold text-2xl md:text-[32px] "
           />
           <CopyButton
             password={password}
