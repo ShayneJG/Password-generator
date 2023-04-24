@@ -44,7 +44,7 @@ function App() {
             id="password"
             value={password}
             placeholder="P4$5W0rD!"
-            className="w-full h-16 md:h-20 bg-darkGrey p-3 mb-4 text-almostWhite font-bold text-2xl md:text-[32px] "
+            className="w-full outline-none h-16 md:h-20 bg-darkGrey p-3 mb-4 text-almostWhite font-bold text-2xl md:text-[32px] "
           />
           <CopyButton
             password={password}
@@ -113,13 +113,13 @@ function App() {
           <Tooltip
             hasArrow
             arrowSize={15}
-            isDisabled={upper || lower || sym || (num && length > 4)}
+            isDisabled={(upper || lower || sym || num) && length > 4}
             label="Please tick at least one box and have a length of 4 or more!"
           >
             <button
               disabled={(!upper && !lower && !sym && !num) || length < 4}
               id="generate-button"
-              className="flex items-center text-center group disabled:opacity-30 disabled:hover:cursor-not-allowed hover:border-neonGreen hover:text-neonGreen hover:bg-darkGrey bg-neonGreen text-darkGrey justify-center w-full h-14 md:h-16 box-content hover:cursor-pointer"
+              className="flex items-center text-center group disabled:opacity-30 disabled:hover:cursor-not-allowed hover:border-neonGreen hover:border hover:text-neonGreen hover:bg-darkGrey bg-neonGreen text-darkGrey justify-center w-full h-14 md:h-16 box-content hover:cursor-pointer"
               onClick={() => {
                 generatePassword(
                   length,
