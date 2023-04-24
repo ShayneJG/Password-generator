@@ -57,7 +57,9 @@ function App() {
           <div id="option-container" className="">
             <div id="slider-container">
               <div className="flex justify-between font-bold items-center">
-                <p className="text-base text-almostWhite">Character Length</p>
+                <p className="text-base leading-[21px] text-almostWhite">
+                  Character Length
+                </p>
                 <p className="text-neonGreen text-2xl">{length}</p>
               </div>
               <Slider
@@ -70,7 +72,7 @@ function App() {
                   setLength(v);
                 }}
               >
-                <SliderTrack bg={"#18171F"} height={"8px"}>
+                <SliderTrack bg={"#18171F"} height={"8px"} rounded={"none"}>
                   <SliderFilledTrack bg={"#A4FFAF"} />
                 </SliderTrack>
                 <SliderThumb
@@ -115,7 +117,7 @@ function App() {
             <button
               disabled={(!upper && !lower && !sym && !num) || length < 4}
               id="generate-button"
-              className="flex items-center group disabled:opacity-30 disabled:hover:cursor-not-allowed hover:border-neonGreen hover:text-neonGreen hover:bg-darkGrey bg-neonGreen hover: text-darkGrey justify-center w-full h-16 box-content hover:cursor-pointer"
+              className="flex items-center text-center group disabled:opacity-30 disabled:hover:cursor-not-allowed hover:border-neonGreen hover:text-neonGreen hover:bg-darkGrey bg-neonGreen hover: text-darkGrey justify-center w-full h-16 box-content hover:cursor-pointer"
               onClick={() => {
                 generatePassword(
                   length,
@@ -129,7 +131,7 @@ function App() {
                 );
               }}
             >
-              <p className="pr-5  text-base leading-[21px] font-bold">
+              <p className="pr-5 text-base leading-[21px] font-bold">
                 GENERATE
               </p>
               <svg width="11" height="12" xmlns="http://www.w3.org/2000/svg">
@@ -380,9 +382,9 @@ interface OptionsProps {
 const Options: React.FC<OptionsProps> = ({ state, toggle, label }) => {
   return (
     <Checkbox
-      className="text-base font-bold"
+      className="text-base leading-[21px] font-bold"
       id={label}
-      marginBottom="0.4rem"
+      marginBottom="0.7rem"
       spacing="1.2rem"
       iconColor="black"
       isChecked={state}
