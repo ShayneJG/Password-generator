@@ -73,7 +73,16 @@ function App() {
                 <SliderTrack bg={"#18171F"} height={"8px"}>
                   <SliderFilledTrack bg={"#A4FFAF"} />
                 </SliderTrack>
-                <SliderThumb height={"28px"} width={"28px"} />
+                <SliderThumb
+                  bg="almostWhite"
+                  height={"28px"}
+                  width={"28px"}
+                  _hover={{
+                    bg: "veryDarkGrey",
+                    border: "2px solid",
+                    borderColor: "neonGreen",
+                  }}
+                />
               </Slider>
             </div>
             <div id="check-container">
