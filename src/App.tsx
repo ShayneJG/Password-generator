@@ -4,10 +4,9 @@ import {
   SliderTrack,
   SliderFilledTrack,
   SliderThumb,
-  SliderMark,
 } from "@chakra-ui/react";
 import "./App.css";
-import { Checkbox, CheckboxGroup } from "@chakra-ui/react";
+import { Checkbox } from "@chakra-ui/react";
 
 // user stories
 // - Generate a password based on the selected inclusion options
