@@ -354,7 +354,7 @@ const CopyButton: React.FC<CopyButtonProps> = ({
       <p className="absolute right-10 text-neonGreen h-0">
         {copied ? "COPIED" : ""}
       </p>
-      <div className="w-4 h-5">
+      <div className="w-4 h-5 md:h-6 md:w-[21px]">
         <svg
           className="hover:cursor-pointer"
           viewBox="0 0 21 24"
