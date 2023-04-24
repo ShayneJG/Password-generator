@@ -119,7 +119,7 @@ function App() {
             <button
               disabled={(!upper && !lower && !sym && !num) || length < 4}
               id="generate-button"
-              className="flex items-center text-center group disabled:opacity-30 disabled:hover:cursor-not-allowed hover:border-neonGreen hover:text-neonGreen hover:bg-darkGrey bg-neonGreen hover: text-darkGrey justify-center w-full h-16 box-content hover:cursor-pointer"
+              className="flex items-center text-center group disabled:opacity-30 disabled:hover:cursor-not-allowed hover:border-neonGreen hover:text-neonGreen hover:bg-darkGrey bg-neonGreen text-darkGrey justify-center w-full h-14 md:h-16 box-content hover:cursor-pointer"
               onClick={() => {
                 generatePassword(
                   length,
