@@ -57,10 +57,12 @@ function App() {
           <div id="option-container" className="">
             <div id="slider-container">
               <div className="flex justify-between font-bold items-center">
-                <p className="text-base leading-[21px] text-almostWhite">
+                <p className="text-base md:text-lg leading-[21px] text-almostWhite">
                   Character Length
                 </p>
-                <p className="text-neonGreen text-2xl">{length}</p>
+                <p className="text-neonGreen text-2xl md:text-[32px]">
+                  {length}
+                </p>
               </div>
               <Slider
                 marginY={"1.0rem"}
@@ -265,10 +267,12 @@ interface StrengthRatingProps {
 //component for the entire strength rating section
 const StrengthRating: React.FC<StrengthRatingProps> = ({ strength }) => {
   return (
-    <div className="flex bg-[#18171F] my-3 p-5 justify-between items-center">
-      <p className="text-grey text-base font-bold">STRENGTH</p>
+    <div className="flex bg-[#18171F] my-3 h-14 md:h-[72px] p-5 justify-between items-center">
+      <p className="text-grey text-base font-bold md:text-lg">STRENGTH</p>
       <div className="flex items-center">
-        <p className="text-almostWhite text-lg font-bold pr-2">{strength}</p>
+        <p className="text-almostWhite text-lg md:text-2xl font-bold pr-2">
+          {strength}
+        </p>
         <StrengthBars strength={strength} />
       </div>
     </div>
@@ -382,7 +386,7 @@ interface OptionsProps {
 const Options: React.FC<OptionsProps> = ({ state, toggle, label }) => {
   return (
     <Checkbox
-      className="text-base leading-[21px] font-bold"
+      className="text-base md:text-lg leading-[21px] font-bold"
       id={label}
       marginBottom="0.7rem"
       spacing="1.2rem"
