@@ -113,7 +113,7 @@ function App() {
           <Tooltip
             hasArrow
             arrowSize={15}
-            isDisabled={(upper || lower || sym || num) && length > 4}
+            isDisabled={(upper || lower || sym || num) && length >= 4}
             label="Please tick at least one box and have a length of 4 or more!"
           >
             <button
