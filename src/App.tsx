@@ -31,7 +31,7 @@ function App() {
 
   return (
     <div
-      className="w-full m-auto max-w-sm md:max-w-[540px] h-full text-almostWhite font-jetBrainsMono 
+      className="w-full m-auto max-w-sm lg:pt-10 md:max-w-[540px] h-full text-almostWhite font-jetBrainsMono 
 "
     >
       <div id="container" className="p-5 mx-auto">
@@ -119,7 +119,7 @@ function App() {
             <button
               disabled={(!upper && !lower && !sym && !num) || length < 4}
               id="generate-button"
-              className="flex items-center text-center group disabled:opacity-30 disabled:hover:cursor-not-allowed hover:border-neonGreen hover:border hover:text-neonGreen hover:bg-darkGrey bg-neonGreen text-darkGrey justify-center w-full h-14 md:h-16 box-content hover:cursor-pointer"
+              className="flex items-center lg:mt-7 text-center group disabled:opacity-30 disabled:hover:cursor-not-allowed hover:border-neonGreen hover:border hover:text-neonGreen hover:bg-darkGrey bg-neonGreen text-darkGrey justify-center w-full h-14 md:h-16 box-content hover:cursor-pointer"
               onClick={() => {
                 generatePassword(
                   length,
