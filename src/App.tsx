@@ -44,7 +44,7 @@ function App() {
             id="password"
             value={password}
             placeholder="P4$5W0rD!"
-            className="w-full outline-none h-16 md:h-20 bg-darkGrey p-3 mb-4 text-almostWhite font-bold text-2xl md:text-[32px] "
+            className="w-full outline-none h-16 md:h-20 bg-darkGrey p-3 mb-4 text-almostWhite placeholder:opacity-20 font-bold text-2xl md:text-[32px] "
           />
           <CopyButton
             password={password}
